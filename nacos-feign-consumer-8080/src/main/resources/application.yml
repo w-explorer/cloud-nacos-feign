@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: nacos-consumer
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 120.79.14.220:8848
+
+feign:
+  hystrix:
+    enabled: true #打开feign自带的断路器   当服务提供者挂掉之后

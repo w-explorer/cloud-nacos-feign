@@ -1,0 +1,10 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: nacos-provider
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 120.79.14.220  #nacos部署地址
