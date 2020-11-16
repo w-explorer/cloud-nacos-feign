@@ -11,5 +11,15 @@ spring:
         server-addr: 120.79.14.220:8848
 
 feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+  client:
+    config:
+      default:
+#        connectTimeout: 2000
+        readTimeout: 20000
+        loggerLevel: BASIC
   hystrix:
-    enabled: true #打开feign自带的断路器   当服务提供者挂掉之后
+    enabled: true

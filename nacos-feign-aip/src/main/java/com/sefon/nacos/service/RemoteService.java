@@ -1,7 +1,5 @@
 package com.sefon.nacos.service;
 
-import com.sefon.nacos.service.impl.RemoteHystrix;
-import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -10,9 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @email 2515106327@qq.com
  * @create 2019-12-16 22:31
  */
-@FeignClient(name = "nacos-provider",fallback = RemoteHystrix.class)
-public interface RemoteClient {
+public interface RemoteService {
 
     @GetMapping("/helloNacos")
     String helloNacos();
+
+    @GetMapping("/timeout")
+    String timeOut();
+
+    @GetMapping("/ok")
+    String ok();
 }

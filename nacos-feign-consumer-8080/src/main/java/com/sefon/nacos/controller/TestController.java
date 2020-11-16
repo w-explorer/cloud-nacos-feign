@@ -1,9 +1,10 @@
 package com.sefon.nacos.controller;
 
-import com.sefon.nacos.service.RemoteClient;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.sefon.nacos.controller.thirdapi.RemoteServiceClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @author wenc
@@ -13,12 +14,21 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class TestController {
-    @SuppressWarnings("all")
-    @Autowired
-    private RemoteClient remoteClient;
+    @Resource
+    private RemoteServiceClient remoteClient;
 
     @GetMapping("/helloFeign")
     public String test() {
         return remoteClient.helloNacos();
+
+    }
+    @GetMapping("/timeout")
+    public String timeOut() {
+        return remoteClient.timeOut();
+    }
+
+    @GetMapping("/ok")
+    public String ok() {
+        return remoteClient.ok();
     }
 }
